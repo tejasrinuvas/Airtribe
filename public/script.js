@@ -211,7 +211,7 @@ function saveEditedTask() {
     const editedTask = {
         id: taskId,
         title: document.getElementById('editTitle').value,
-        status: document.getElementById('editStatus').value, // Check if this value is correct
+        status : document.getElementById('editStatus').value,
         description: document.getElementById('editDescription').value
     };
     
