@@ -5,12 +5,15 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js && echo Server running on http://localhost:3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "open": "^10.1.0"
   }
 }
