@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Task Details</h1>
+    <div id="taskDetails" class="details-container">
+        <!-- Task details will be populated dynamically using JavaScript -->
+    </div>
+
+
+    <div id="editForm"  style="display: none;">
+        <h2>Edit Task</h2>
+        <form id="editTaskForm" onsubmit="saveEditedTask(); return false;">
+            <label for="editTitle">Title:</label><br>
+            <input type="text" id="editTitle" name="editTitle" required><br><br>
+            <label for="editStatus">Status:</label><br>
+            <select id="editStatus" name="editStatus" required>
+                <option value="notStarted">Not Started</option>
+                <option value="inProgress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select><br><br>
+            <label for="editDescription">Description:</label><br>
+            <textarea id="editDescription" name="editDescription" rows="4" cols="50" required></textarea><br><br>
+            <button type="submit">Save Changes</button>
+            <button type="button" id="cancelEdit">Cancel</button>
+        </form>
+    </div>
+
+
+
+    <div class="button-container">
+        <button id="editButton" class="action-button">Edit Task</button>
+        <button id="deleteButton" class="action-button delete-button">Delete Task</button>
+        <button id="backButton" class="action-button back-button">Back to All Tasks</button>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        // Fetch and display task details when the page loads
+        window.onload = function () {
+            viewTaskDetails();
+
+            // Add event listeners for edit, delete, and back buttons
+            document.getElementById('editButton').addEventListener('click', function () {
+                showEditForm();
+            });
+            document.getElementById('deleteButton').addEventListener('click', function () {
+                deleteTask(getTaskIdFromUrl());
+            });
+
+            document.getElementById('backButton').addEventListener('click', function () {
+                window.location.href = 'index.html';
+            });
+
+            document.getElementById('editTaskForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                saveEditedTask();
+            });
+
+            // Add event listener for cancel edit button
+            document.getElementById('cancelEdit').addEventListener('click', function () {
+                hideEditForm();
+            });
+        };
+
+
+
+  
+    </script>
+</body>
+</html>

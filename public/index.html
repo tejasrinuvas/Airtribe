@@ -11,20 +11,40 @@
     <div class="task-manager">
         <div class="column not-started" ondrop="drop(event, 'notStarted')" ondragover="allowDrop(event)">
             <h2>Not started <span id="notStartedCount">0</span></h2>
-            <div id="notStartedCards" class="column-cards" ondragstart="dragStart(event)" draggable="true" ondragover="allowDrop(event)" ondrop="drop(event, 'notStarted')"></div>
-            <button class="new-task-btn" onclick="addCard('notStarted')">+ New</button>
+            <div id="notStartedCards" class="column-cards" ondragover="allowDrop(event)" ondrop="drop(event, 'notStarted')"></div>
+            <button class="new-task-btn" onclick="showAddTaskForm('notStarted')">+ New</button>
         </div>
 
         <div class="column in-progress" ondrop="drop(event, 'inProgress')" ondragover="allowDrop(event)">
             <h2>In progress <span id="inProgressCount">0</span></h2>
-            <div id="inProgressCards" class="column-cards" ondragstart="dragStart(event)" draggable="true" ondragover="allowDrop(event)" ondrop="drop(event, 'inProgress')"></div>
-            <button class="new-task-btn" onclick="addCard('inProgress')">+ New</button>
+            <div id="inProgressCards" class="column-cards" ondragover="allowDrop(event)" ondrop="drop(event, 'inProgress')"></div>
+            <button class="new-task-btn" onclick="showAddTaskForm('inProgress')">+ New</button>
         </div>
 
         <div class="column completed" ondrop="drop(event, 'completed')" ondragover="allowDrop(event)">
             <h2>Completed <span id="completedCount">0</span></h2>
-            <div id="completedCards" class="column-cards" ondragstart="dragStart(event)" draggable="true" ondragover="allowDrop(event)" ondrop="drop(event, 'completed')"></div>
-            <button class="new-task-btn" onclick="addCard('completed')">+ New</button>
+            <div id="completedCards" class="column-cards" ondragover="allowDrop(event)" ondrop="drop(event, 'completed')"></div>
+            <button class="new-task-btn" onclick="showAddTaskForm('completed')">+ New</button>
+        </div>
+    </div>
+
+    <div id="addTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddTaskForm()">&times;</span>
+            <h2>Add Task</h2>
+            <form id="addTaskForm" onsubmit="addTask(event)">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br><br>
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="notStarted">Not Started</option>
+                    <option value="inProgress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select><br><br>
+                <label for="description">Description:</label><br>
+                <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+                <button type="submit">Add Task</button>
+            </form>
         </div>
     </div>
 
