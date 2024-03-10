@@ -148,8 +148,8 @@ function viewTaskDetails() {
     if (task) {
         taskDetailsContainer.innerHTML = `
             <h2>${task.title}</h2>
-            <p><strong>Status:</strong> ${task.status}</p>
-            <p>${task.description}</p>
+            <p><strong>Status: </strong> ${task.status}</p>
+            <p><strong>Description: </strong>${task.description}</p>
         `;
     } else {
         taskDetailsContainer.innerHTML = "<p>No task details found.</p>";
@@ -214,7 +214,7 @@ function saveEditedTask() {
         status : document.getElementById('editStatus').value,
         description: document.getElementById('editDescription').value
     };
-    
+
     console.log("Edited Task Status:", editedTask.status); // Log the status value
 
     let tasks = JSON.parse(localStorage.getItem('tasks')) || { notStarted: [], inProgress: [], completed: [] };

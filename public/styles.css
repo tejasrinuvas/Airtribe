@@ -131,21 +131,47 @@ select {
     border-radius: 4px;
     box-sizing: border-box;
 }
+/* Button styling */
+/* Button container */
+.button-container1 {
+    text-align: center; /* Center the buttons */
+}
 
-button[type=submit] {
-    width: 100%;
+/* Individual button styling */
+.button-container1 button {
+    width: auto; /* Adjust width as needed */
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px; /* Adjust margin to provide spacing between buttons */
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    display: inline-block; /* Display buttons inline */
 }
 
-button[type=submit]:hover {
+.button-container1 button:hover {
     background-color: #45a049;
 }
+
+/* Center the buttons */
+#editForm {
+    text-align: center;
+}
+
+/* Ensure form inputs are centered */
+#editForm input[type="text"],
+#editForm select,
+#editForm textarea {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 
 /* styles.css */
 

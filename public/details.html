@@ -12,8 +12,7 @@
         <!-- Task details will be populated dynamically using JavaScript -->
     </div>
 
-
-    <div id="editForm"  style="display: none;">
+    <div id="editForm" style="display: none;">
         <h2>Edit Task</h2>
         <form id="editTaskForm" onsubmit="saveEditedTask(); return false;">
             <label for="editTitle">Title:</label><br>
@@ -26,20 +25,18 @@
             </select><br><br>
             <label for="editDescription">Description:</label><br>
             <textarea id="editDescription" name="editDescription" rows="4" cols="50" required></textarea><br><br>
-            <button type="submit">Save Changes</button>
-            <button type="button" id="cancelEdit">Cancel</button>
+            <div class="button-container1">
+                <button type="submit">Save Changes</button>
+                <button type="button" id="cancelEdit">Cancel</button>
+            </div>
         </form>
     </div>
-
-
 
     <div class="button-container">
         <button id="editButton" class="action-button">Edit Task</button>
         <button id="deleteButton" class="action-button delete-button">Delete Task</button>
         <button id="backButton" class="action-button back-button">Back to All Tasks</button>
     </div>
-
-
 
     <script src="script.js"></script>
     <script>
@@ -54,25 +51,36 @@
             document.getElementById('deleteButton').addEventListener('click', function () {
                 deleteTask(getTaskIdFromUrl());
             });
-
             document.getElementById('backButton').addEventListener('click', function () {
                 window.location.href = 'index.html';
             });
-
             document.getElementById('editTaskForm').addEventListener('submit', function (event) {
                 event.preventDefault();
                 saveEditedTask();
             });
-
             // Add event listener for cancel edit button
             document.getElementById('cancelEdit').addEventListener('click', function () {
                 hideEditForm();
             });
         };
 
+        function showEditForm() {
+            const task = getTaskById(getTaskIdFromUrl());
+            if (task) {
+                document.getElementById('editTitle').value = task.title;
+                document.getElementById('editStatus').value = task.status;
+                document.getElementById('editDescription').value = task.description;
+                document.getElementById('taskDetails').style.display = 'none';
+                document.getElementById('editForm').style.display = 'block';
+                document.getElementById('editButton').style.display = 'none'; // Hide Edit Task button
+            }
+        }
 
-
-  
+        function hideEditForm() {
+            document.getElementById('taskDetails').style.display = 'block';
+            document.getElementById('editForm').style.display = 'none';
+            document.getElementById('editButton').style.display = 'block'; // Show Edit Task button
+        }
     </script>
 </body>
 </html>
