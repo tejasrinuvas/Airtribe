@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Task Management Board</title>
+</head>
+<body>
+    <h1>Task Management Board</h1>
+    <div class="task-manager">
+        <div class="column not-started" ondrop="drop(event, 'notStarted')" ondragover="allowDrop(event)">
+            <h2>Not started <span id="notStartedCount">0</span></h2>
+            <div id="notStartedCards" class="column-cards" ondragstart="dragStart(event)" draggable="true" ondragover="allowDrop(event)" ondrop="drop(event, 'notStarted')"></div>
+            <button class="new-task-btn" onclick="addCard('notStarted')">+ New</button>
+        </div>
+
+        <div class="column in-progress" ondrop="drop(event, 'inProgress')" ondragover="allowDrop(event)">
+            <h2>In progress <span id="inProgressCount">0</span></h2>
+            <div id="inProgressCards" class="column-cards" ondragstart="dragStart(event)" draggable="true" ondragover="allowDrop(event)" ondrop="drop(event, 'inProgress')"></div>
+            <button class="new-task-btn" onclick="addCard('inProgress')">+ New</button>
+        </div>
+
+        <div class="column completed" ondrop="drop(event, 'completed')" ondragover="allowDrop(event)">
+            <h2>Completed <span id="completedCount">0</span></h2>
+            <div id="completedCards" class="column-cards" ondragstart="dragStart(event)" draggable="true" ondragover="allowDrop(event)" ondrop="drop(event, 'completed')"></div>
+            <button class="new-task-btn" onclick="addCard('completed')">+ New</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

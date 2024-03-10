@@ -1,0 +1,35 @@
+# Dependency directories
+node_modules/
+
+# Production build directory
+dist/
+
+# Nuxt.js build directory
+.nuxt/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build files
+*.d.ts
+*.map
